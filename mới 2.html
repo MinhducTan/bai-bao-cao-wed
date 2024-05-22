@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minh Duc Store</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/logo.jpg" alt="Minh Duc Store Logo" class="logo">
+        <h1>MINH ĐỨC STORE</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li>
+                    <a href="#">Sản phẩm</a>
+                    <ul>
+                        <li><label><input type="checkbox" value="sony" onchange="filterProducts()"> Sony</label></li>
+                        <li><label><input type="checkbox" value="nikon" onchange="filterProducts()"> Nikon</label></li>
+                        <li><label><input type="checkbox" value="canon" onchange="filterProducts()"> Canon</label></li>
+                    </ul>
+                </li>
+                <li><a href="#" onclick="openAboutModal()">Giới thiệu</a></li>
+                <li>
+                    <a href="#">Liên hệ</a>
+                    <ul class="contact-info">
+                        <li>Địa chỉ: 123 Đường ABC, Quận XYZ, TP.HCM</li>
+                        <li>Email: contact@minhducstore.com</li>
+                        <li>Điện thoại: 0123 456 789</li>
+                    </ul>
+                </li>
+                <li><a href="#" onclick="openLoginForm()">Đăng nhập</a></li>
+                <li><a href="#" onclick="openCart()" class="cart-button">Giỏ hàng (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+        <form class="search-form" action="#" method="GET">
+            <input type="text" name="search" placeholder="Tìm kiếm camera..." required>
+            <button type="submit">Tìm Kiếm</button>
+        </form>
+    </header>
+    <main>
+        <section class="products">
+            <div class="product-card" data-category="sony" onclick="showProductDetail('Sony Alpha A7 Mark IV', 'images/may1.ipg', 'Máy ảnh Sony Alpha A7 Mark IV (Body Only) | Chính hãng', '53490000', 'Camera chất lượng cao với các tính năng tuyệt vời')">
+                <img src="images/may1.ipg" alt="Máy Ảnh 1">
+                <h3>Máy ảnh Sony Alpha A7 Mark IV (Body Only) | Chính hãng</h3>
+                <p>53.490.000 VND</p>
+                <div class="star-rating">
+                    <input type="radio" name="rating1" id="rating1-5"><label for="rating1-5">☆</label>
+                    <input type="radio" name="rating1" id="rating1-4"><label for="rating1-4">☆</label>
+                    <input type="radio" name="rating1" id="rating1-3"><label for="rating1-3">☆</label>
+                    <input type="radio" name="rating1" id="rating1-2"><label for="rating1-2">☆</label>
+                    <input type="radio" name="rating1" id="rating1-1"><label for="rating1-1">☆</label>
+                </div>
+                <button onclick="addToCart('Máy ảnh Sony Alpha A7 Mark IV', 53490000); event.stopPropagation();">Đặt Mua</button>
+            </div>
+            <div class="product-card" data-category="sony" onclick="showProductDetail('Sony A9 III', 'images/may2.ipg', 'Máy ảnh Sony A9 III (Body Only)', '143650000', 'Camera chất lượng cao với các tính năng tuyệt vời')">
+                <img src="images/may2.ipg" alt="Máy Ảnh 2">
+                <h3>Máy ảnh Sony A9 III (Body Only)</h3>
+                <p>143.650.000 VND</p>
+                <div class="star-rating">
+                    <input type="radio" name="rating2" id="rating2-5"><label for="rating2-5">☆</label>
+                    <input type="radio" name="rating2" id="rating2-4"><label for="rating2-4">☆</label>
+                    <input type="radio" name="rating2" id="rating2-3"><label for="rating2-3">☆</label>
+                    <input type="radio" name="rating2" id="rating2-2"><label for="rating2-2">☆</label>
+                    <input type="radio" name="rating2" id="rating2-1"><label for="rating2-1">☆</label>
+                </div>
+                <button onclick="addToCart('Máy ảnh Sony A9 III', 143650000); event.stopPropagation();">Đặt Mua</button>
+            </div>
+            <div class="product-card" data-category="sony" onclick="showProductDetail('Sony FX3', 'images/may3.ipg', 'Máy quay phim Sony FX3 (Body Only) | Chính hãng', '85490000', 'Camera chất lượng cao với các tính năng tuyệt vời')">
+                <img src="images/may3.ipg" alt="Máy Ảnh 3">
+                <h3>Máy quay phim Sony FX3 (Body Only) | Chính hãng</h3>
+                <p>85.490.000 VND</p>
+                <div class="star-rating">
+                    <input type="radio" name="rating3" id="rating3-5"><label for="rating3-5">☆</label>
+                    <input type="radio" name="rating3" id="rating3-4"><label for="rating3-4">☆</label>
+                    <input type="radio" name="rating3" id="rating3-3"><label for="rating3-3">☆</label>
+                    <input type="radio" name="rating3" id="rating3-2"><label for="rating3-2">☆</label>
+                    <input type="radio" name="rating3" id="rating3-1"><label for="rating3-1">☆</label>
+                </div>
+                <button onclick="addToCart('Máy quay phim Sony FX3', 85490000); event.stopPropagation();">Đặt Mua</button>
+            </div>
+            <div class="product-card" data-category="sony" onclick="showProductDetail('Sony ZV-E10', 'images/may4.ipg', 'Máy ảnh Sony ZV-E10 + Lens 16-50mm F3.5-5.6 (Black) | Chính hãng', '16950000', 'Camera chất lượng cao với các tính năng tuyệt vời')">
+                <img src="images/may4.ipg" alt="Máy Ảnh 4">
+                <h3>Máy ảnh Sony ZV-E10 + Lens 16-50mm F3.5-5.6 (Black) | Chính hãng</h3>
+                <p>16.950.000 VND</p>
+                <div class="star-rating">
+                    <input type="radio" name="rating4" id="rating4-5"><label for="rating4-5">☆</label>
+                    <input type="radio" name="rating4" id="rating4-4"><label for="rating4-4">☆</label>
+                    <input type="radio" name="rating4" id="rating4-3"><label for="rating4-3">☆</label>
+                    <input type="radio" name="rating4" id="rating4-2"><label for="rating4-2">☆</label>
+                    <input type="radio" name="rating4" id="rating4-1"><label for="rating4-1">☆</label>
+                </div>
+                <button onclick="addToCart('Máy ảnh Sony ZV-E10', 16950000); event.stopPropagation();">Đặt Mua</button>
+            </div>
+            <div class="product-card" data-category="nikon" onclick="showProductDetail('Nikon Z8', 'images/may5.ipg', 'Máy ảnh Nikon Z8 (Body Only)', '85990000', 'Camera chất lượng cao với các tính năng tuyệt vời')">
+                <img src="images/may5.ipg" alt="Máy Ảnh 5">
+                <h3>Máy ảnh Nikon Z8 (Body Only)</h3>
+                <p>85.990.000 VND</p>
+                <div class="star-rating">
+                    <input type="radio" name="rating5" id="rating5-5"><label for="rating5-5">☆</label>
+                    <input type="radio" name="rating5" id="rating5-4"><label for="rating5-4">☆</label>
+                    <input type="radio" name="rating5" id="rating5-3"><label for="rating5-3">☆</label>
+                    <input type="radio" name="rating5" id="rating5-2"><label for="rating5-2">☆</label>
+                    <input type="radio" name="rating5" id="rating5-1"><label for="rating5-1">☆</label>
+                </div>
+                <button onclick="addToCart('Máy ảnh Nikon Z8', 85990000); event.stopPropagation();">Đặt Mua</button>
+            </div>
+            <div class="product-card" data-category="nikon" onclick="showProductDetail('Nikon Z9', 'images/may6.ipg', 'Máy ảnh Nikon Z9 (Body Only)', '99990000', 'Camera chất lượng cao với các tính năng tuyệt vời')">
+                <img src="images/may6.ipg" alt="Máy Ảnh 6">
+                <h3>Máy ảnh Nikon Z9 (Body Only)</h3>
+                <p>99.990.000 VND</p>
+                <div class="star-rating">
+                    <input type="radio" name="rating6" id="rating6-5"><label for="rating6-5">☆</label>
+                    <input type="radio" name="rating6" id="rating6-4"><label for="rating6-4">☆</label>
+                    <input type="radio" name="rating6" id="rating6-3"><label for="rating6-3">☆</label>
+                    <input type="radio" name="rating6" id="rating6-2"><label for="rating6-2">☆</label>
+                    <input type="radio" name="rating6" id="rating6-1"><label for="rating6-1">☆</label>
+                </div>
+                <button onclick="addToCart('Máy ảnh Nikon Z9', 99990000); event.stopPropagation();">Đặt Mua</button>
+            </div>
+            <div class="product-card" data-category="nikon" onclick="showProductDetail('Nikon ZF', 'images/may7.ipg', 'Máy ảnh Nikon ZF (Body Only)', '44490000', 'Camera chất lượng cao với các tính năng tuyệt vời')">
+                <img src="images/may7.ipg" alt="Máy Ảnh 7">
+                <h3>Máy ảnh Nikon ZF (Body Only)</h3>
+                <p>44.490.000 VND</p>
+                <div class="star-rating">
+                    <input type="radio" name="rating7" id="rating7-5"><label for="rating7-5">☆</label>
+                    <input type="radio" name="rating7" id="rating7-4"><label for="rating7-4">☆</label>
+                    <input type="radio" name="rating7" id="rating7-3"><label for="rating7-3">☆</label>
+                    <input type="radio" name="rating7" id="rating7-2"><label for="rating7-2">☆</label>
+                    <input type="radio" name="rating7" id="rating7-1"><label for="rating7-1">☆</label>
+                </div>
+                <button onclick="addToCart('Máy ảnh Nikon ZF', 44490000); event.stopPropagation();">Đặt Mua</button>
+            </div>
+            <div class="product-card" data-category="canon" onclick="showProductDetail('Canon EOS R6', 'images/may8.ipg', 'Máy ảnh Canon EOS R6 (Body Only)', '35590000', 'Camera chất lượng cao với các tính năng tuyệt vời')">
+                <img src="images/may8.ipg" alt="Máy Ảnh 8">
+                <h3>Máy ảnh Canon EOS R6 (Body Only)</h3>
+                <p>35.590.000 VND</p>
+                <div class="star-rating">
+                    <input type="radio" name="rating8" id="rating8-5"><label for="rating8-5">☆</label>
+                    <input type="radio" name="rating8" id="rating8-4"><label for="rating8-4">☆</label>
+                    <input type="radio" name="rating8" id="rating8-3"><label for="rating8-3">☆</label>
+                    <input type="radio" name="rating8" id="rating8-2"><label for="rating8-2">☆</label>
+                    <input type="radio" name="rating8" id="rating8-1"><label for="rating8-1">☆</label>
+                </div>
+                <button onclick="addToCart('Máy ảnh Canon EOS R6', 35590000); event.stopPropagation();">Đặt Mua</button>
+            </div>
+        </section>
+
+        <!-- Product Detail Modal -->
+        <div id="productDetailModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeProductDetail()">&times;</span>
+                <h2 id="productDetailTitle"></h2>
+                <img id="productDetailImage" src="" alt="Product Image" style="width:100%; border-radius:5px;">
+                <p id="productDetailDescription"></p>
+                <p id="productDetailPrice"></p>
+                <div class="star-rating" id="ratingSection">
+                    <input type="radio" name="ratingDetail" id="ratingDetail-5" value="5"><label for="ratingDetail-5">☆</label>
+                    <input type="radio" name="ratingDetail" id="ratingDetail-4" value="4"><label for="ratingDetail-4">☆</label>
+                    <input type="radio" name="ratingDetail" id="ratingDetail-3" value="3"><label for="ratingDetail-3">☆</label>
+                    <input type="radio" name="ratingDetail" id="ratingDetail-2" value="2"><label for="ratingDetail-2">☆</label>
+                    <input type="radio" name="ratingDetail" id="ratingDetail-1" value="1"><label for="ratingDetail-1">☆</label>
+                </div>
+                <div class="review-section">
+                    <textarea id="productReview" placeholder="Viết đánh giá của bạn..."></textarea>
+                    <button onclick="submitReview()">Gửi đánh giá</button>
+                </div>
+                <div id="reviewsContainer">
+                    <h3>Đánh giá:</h3>
+                    <ul id="reviewsList"></ul>
+                </div>
+                <div class="related-products">
+                    <h3>Sản phẩm liên quan:</h3>
+                    <div id="relatedProductsContainer"></div>
+                </div>
+                <button id="productDetailAddToCart" onclick="addToCartFromDetail()">Đặt Mua</button>
+            </div>
+        </div>
+
+        <!-- Login Modal -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeLoginForm()">&times;</span>
+                <form action="/submit-login" method="post">
+                    <h2>Đăng nhập</h2>
+                    <label for="username">Họ tên:</label>
+                    <input type="text" id="username" name="username" required>
+                    <label for="password">Mật khẩu:</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="submit">Đăng nhập</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- About Us Modal -->
+        <div id="aboutModal" class="modal">
+            <div class="modal-content about-modal-content">
+                <span class="close" onclick="closeAboutModal()">&times;</span>
+                <img src="images/logo.jpg" alt="Minh Duc Store Logo" class="logo">
+                <h2>Minh Đức Store</h2>
+                <p>Minh Đức Store là nhà cung cấp hàng đầu về các thiết bị máy ảnh và phụ kiện tại Việt Nam. Chúng tôi cung cấp các sản phẩm chính hãng từ các thương hiệu nổi tiếng như Sony, Nikon, Canon và nhiều hơn nữa.</p>
+                <p>Tại Minh Duc Store, chúng tôi cam kết mang đến cho khách hàng những sản phẩm chất lượng cao nhất cùng với dịch vụ chăm sóc khách hàng tận tâm. Đội ngũ nhân viên chuyên nghiệp của chúng tôi luôn sẵn sàng hỗ trợ bạn trong việc lựa chọn sản phẩm phù hợp nhất với nhu cầu của mình.</p>
+                <p>Chúng tôi không chỉ bán hàng, mà còn cung cấp các dịch vụ hậu mãi như bảo hành, sửa chữa và tư vấn sử dụng sản phẩm. Hãy đến với Minh Đức Store để trải nghiệm mua sắm tốt nhất!</p>
+            </div>
+        </div>
+
+        <!-- Cart Modal -->
+        <div id="cartModal" class="cart-modal">
+            <div class="cart-modal-content">
+                <span class="close" onclick="closeCart()">&times;</span>
+                <h2>Giỏ hàng</h2>
+                <div id="cart-items"></div>
+                <div class="total-price" id="total-price">Tổng tiền: 0 VND</div>
+                <button class="checkout-button" onclick="checkout()">Thanh toán</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Minh Duc Store. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let cart = [];
+        let currentProduct = null;
+
+        function openLoginForm() {
+            document.getElementById('loginModal').style.display = 'block';
+        }
+
+        function closeLoginForm() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+
+        function openAboutModal() {
+            document.getElementById('aboutModal').style.display = 'block';
+        }
+
+        function closeAboutModal() {
+            document.getElementById('aboutModal').style.display = 'none';
+        }
+
+        function filterProducts() {
+            const checkboxes = document.querySelectorAll('nav ul li ul li input[type="checkbox"]');
+            const productCards = document.querySelectorAll('.product-card');
+
+            let selectedCategories = [];
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    selectedCategories.push(checkbox.value);
+                }
+            });
+
+            productCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                if (selectedCategories.length === 0 || selectedCategories.includes(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.querySelector('.search-form input[type="text"]');
+            const productCards = document.querySelectorAll('.product-card');
+
+            searchInput.addEventListener('input', function () {
+                const searchText = this.value.toLowerCase();
+
+                productCards.forEach(card => {
+                    const productName = card.querySelector('h3').textContent.toLowerCase();
+                    card.style.display = productName.includes(searchText) ? '' : 'none';
+                });
+            });
+        });
+
+        function addToCart(name, price) {
+            const existingProductIndex = cart.findIndex(item => item.name === name);
+            if (existingProductIndex > -1) {
+                cart[existingProductIndex].quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            updateCartCount();
+            alert("Sản phẩm đã được thêm vào giỏ hàng!");
+        }
+
+        function updateCartCount() {
+            document.getElementById('cart-count').textContent = cart.reduce((total, item) => total + item.quantity, 0);
+            updateTotalPrice();
+        }
+
+        function openCart() {
+            document.getElementById('cartModal').style.display = 'block';
+            displayCartItems();
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').style.display = 'none';
+        }
+
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <span>${item.name} - ${item.price.toLocaleString()} VND</span>
+                    <div>
+                        <button onclick="updateQuantity(${index}, -1)">-</button>
+                        <span>${item.quantity}</span>
+                        <button onclick="updateQuantity(${index}, 1)">+</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+            updateTotalPrice();
+        }
+
+        function updateQuantity(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            displayCartItems();
+            updateCartCount();
+        }
+
+        function updateTotalPrice() {
+            const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            document.getElementById('total-price').textContent = `Tổng tiền: ${totalPrice.toLocaleString()} VND`;
+        }
+
+        function checkout() {
+            alert('Thanh toán thành công!');
+            cart = [];
+            updateCartCount();
+            closeCart();
+        }
+
+        function showProductDetail(name, image, description, price, details) {
+            currentProduct = { name, price };
+            document.getElementById('productDetailTitle').textContent = name;
+            document.getElementById('productDetailImage').src = image;
+            document.getElementById('productDetailDescription').textContent = details;
+            document.getElementById('productDetailPrice').textContent = `${parseInt(price).toLocaleString()} VND`;
+            document.getElementById('productDetailModal').style.display = 'block';
+            loadReviews(name);
+            loadRelatedProducts(description);
+        }
+
+        function closeProductDetail() {
+            document.getElementById('productDetailModal').style.display = 'none';
+        }
+
+        function addToCartFromDetail() {
+            if (currentProduct) {
+                addToCart(currentProduct.name, currentProduct.price);
+                closeProductDetail();
+            }
+        }
+
+        function submitReview() {
+            const rating = document.querySelector('input[name="ratingDetail"]:checked');
+            const reviewText = document.getElementById('productReview').value;
+            if (!rating || !reviewText.trim()) {
+                alert('Vui lòng đánh giá và viết nhận xét!');
+                return;
+            }
+
+            const review = {
+                id: Date.now(),
+                rating: rating.value,
+                text: reviewText,
+                productName: currentProduct.name
+            };
+
+            saveReview(review);
+            displayReview(review);
+            document.getElementById('productReview').value = '';
+            document.querySelector('input[name="ratingDetail"]:checked').checked = false;
+            alert('Đánh giá của bạn đã được lưu!');
+        }
+
+        function saveReview(review) {
+            let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+            reviews.push(review);
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+        }
+
+        function loadReviews(productName) {
+            const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+            const reviewsContainer = document.getElementById('reviewsList');
+            reviewsContainer.innerHTML = '';
+
+            reviews.filter(review => review.productName === productName).forEach(displayReview);
+        }
+
+        function displayReview(review) {
+            const reviewsContainer = document.getElementById('reviewsList');
+            const reviewItem = document.createElement('li');
+            reviewItem.innerHTML = `
+                <div class="review-item">
+                    <div class="review-rating">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
+                    <p class="review-text">${review.text}</p>
+                    <button class="delete-btn" onclick="deleteReview(${review.id})">Xóa</button>
+                </div>
+            `;
+            reviewsContainer.appendChild(reviewItem);
+        }
+
+        function deleteReview(reviewId) {
+            let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+            reviews = reviews.filter(review => review.id !== reviewId);
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+            loadReviews(currentProduct.name);
+        }
+
+        function loadRelatedProducts(category) {
+            const relatedProductsContainer = document.getElementById('relatedProductsContainer');
+            relatedProductsContainer.innerHTML = '';
+            const relatedProducts = Array.from(document.querySelectorAll(`.product-card[data-category="${category}"]`));
+            relatedProducts.forEach(product => {
+                relatedProductsContainer.appendChild(product.cloneNode(true));
+            });
+        }
+		
+		
+		
+    </script>
+</body>
+</html>
